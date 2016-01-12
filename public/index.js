@@ -165,6 +165,37 @@ var rentalModifications = [{
   'pickupDate': '2015-12-05'
 }];
 
+//EXERCICE 1///////////////////////////////////////////////////////////////////////////////////////////////////////
+function cactime(time_begin, time_final)
+{
+	var timeBegin = new Date(time_begin);
+	var timeFinal = new Date(time_final);
+	var time = timeFinal.getDate()-timeBegin.getDate()+1;
+	return time;
+}
+
+function rental_time(time,price)
+{
+	//var prix= new var(price);
+	var rentaltime_result=time*price;
+	return rentaltime_result;
+}
+
+function rental_distance(distance, price){
+	var rentaldistance_result=distance*price;
+	return rentaldistance_result;
+}
+
+for(var i=0; i<rentals.length;i++)
+{
+	var cactime_result =cactime(rentals[i].pickupDate, rentals[i].returnDate);
+	var rental_time_result = rental_time(cactime_result,cars[i].pricePerDay);
+	var rental_distance_result=rental_distance(rentals[i].distance, cars[i].pricePerKm);
+	var rental_price=rental_time_result + rental_distance_result;
+	//alert(rental_distance_result);
+	alert(rentals[i].driver.firstName + ' ' + '\nRental Price:' + ' ' + rental_price + '$');
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 console.log(cars);
 console.log(rentals);
 console.log(actors);
