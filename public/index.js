@@ -165,7 +165,7 @@ var rentalModifications = [{
   'pickupDate': '2015-12-05'
 }];
 
-//EXERCICE 1///////////////////////////////////////////////////////////////////////////////////////////////////////
+//EXERCICE 1////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function cactime(time_begin, time_final)
 {
 	var timeBegin = new Date(time_begin);
@@ -194,6 +194,33 @@ for(var i=0; i<rentals.length;i++)
 	var rental_price=rental_time_result + rental_distance_result;
 	//alert(rental_distance_result);
 	alert(rentals[i].driver.firstName + ' ' + '\nRental Price:' + ' ' + rental_price + '$');
+	rentals[i].price = rental_price;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//EXERCIE2////////////////////////////////////////////////////////////////////////////////////////////////////////////
+for(var i=0; i<rentals.length;i++){
+	var cactime_result =cactime(rentals[i].pickupDate, rentals[i].returnDate);
+	if(cactime_result>1 && cactime_result<=4)
+	{
+		alert('before' + rental_price);
+		rental_price = rental_price*0.90;
+		alert(rental_price);
+		rentals[i].price = rental_price;
+	}
+	else if(cactime_result>4 && cactime_result<=10)
+	{
+		alert('before' + rental_price);
+		rental_price = rental_price*0.70;
+		alert(rental_price);
+		rentals[i].price = rental_price;
+	}
+	else if(cactime_result>10)
+	{
+		alert('before' + rental_price);
+		rental_price = rental_price*0.50;
+		alert(rental_price);
+		rentals[i].price = rental_price;
+	}
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 console.log(cars);
